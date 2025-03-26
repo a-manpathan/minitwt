@@ -7,7 +7,7 @@ let searchTimeout = null;
 // API base URL - use environment variable or fallback to localhost
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:3001'
-    : 'https://mini-twitter-backend.vercel.app'; // Your deployed backend URL
+    : 'https://minitwt.vercel.app/'; // Your deployed backend URL
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
