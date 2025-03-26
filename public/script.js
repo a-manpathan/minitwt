@@ -8,6 +8,7 @@ let searchTimeout = null;
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:3001'
     : 'https://minitwt.vercel.app/'; // Your deployed backend URL
+    : 'https://twtb.onrender.com';
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
