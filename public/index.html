@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Twitter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Auth Section -->
+        <div id="authSection" class="auth-section">
+            <h2>Welcome to Mini Twitter</h2>
+            <div class="auth-forms">
+                <form id="loginForm" class="auth-form">
+                    <h3>Login</h3>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <form id="signupForm" class="auth-form">
+                    <h3>Sign Up</h3>
+                    <input type="text" placeholder="Username" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main App Section -->
+        <div id="appSection" class="container" style="display: none;">
+            <div class="sidebar">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img id="profilePic" src="https://via.placeholder.com/50" alt="Profile">
+                    </div>
+                    <div class="profile-info">
+                        <h3 id="username">@username</h3>
+                        <p id="userBio">Your bio here</p>
+                    </div>
+                    <div class="profile-stats">
+                        <span id="followingCount">0 Following</span>
+                        <span id="followersCount">0 Followers</span>
+                    </div>
+                </div>
+                <button id="logoutButton" class="logout-button">Logout</button>
+            </div>
+
+            <div class="main-content">
+                <h1>Mini Twitter</h1>
+                <div class="tweet-compose">
+                    <textarea id="tweetInput" placeholder="What's happening?" maxlength="280"></textarea>
+                    <div class="tweet-actions">
+                        <div id="charCount"></div>
+                        <button id="tweetButton">Tweet</button>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <button class="tab active" data-tab="feed">Feed</button>
+                    <button class="tab" data-tab="notifications">Notifications</button>
+                </div>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search tweets...">
+                    <button id="searchButton">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor" d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="tweetList" class="tweet-list"></div>
+                <div id="notificationsList" class="notifications-list" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
