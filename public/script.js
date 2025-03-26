@@ -4,6 +4,11 @@ let notifications = [];
 let allTweets = [];
 let searchTimeout = null;
 
+// API base URL - use environment variable or fallback to localhost
+const API_BASE_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3001'
+    : 'https://mini-twitter-backend.vercel.app'; // Your deployed backend URL
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
     // Check if user is logged in (you'd typically check localStorage or cookies)
@@ -94,7 +99,7 @@ async function handleLogin(e) {
     const password = e.target.elements[1].value;
 
     try {
-        const response = await fetch('http://localhost:3001/api/login', {
+        const response = await fetch(`${API_BASE_URL}/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -125,7 +130,7 @@ async function handleSignup(e) {
     const password = e.target.elements[2].value;
 
     try {
-        const response = await fetch('http://localhost:3001/api/register', {
+        const response = await fetch(`${API_BASE_URL}/api/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -183,7 +188,7 @@ async function handleTweet() {
 
     if (tweetText && currentUser) {
         try {
-            const response = await fetch('http://localhost:3001/api/tweets', {
+            const response = await fetch(`${API_BASE_URL}/api/tweets`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -233,7 +238,7 @@ function updateCharacterCount(remaining) {
 // Add function to load tweets
 async function loadTweets() {
     try {
-        const response = await fetch('http://localhost:3001/api/tweets');
+        const response = await fetch(`${API_BASE_URL}/api/tweets`);
         const tweets = await response.json();
         
         allTweets = tweets; // Store all tweets
@@ -264,7 +269,7 @@ function createTweetElement(tweet) {
     
     likeButton.onclick = async function() {
         try {
-            const response = await fetch(`http://localhost:3001/api/tweets/${tweet.id}/like`, {
+            const response = await fetch(`${API_BASE_URL}/api/tweets/${tweet.id}/like`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
